@@ -25,8 +25,7 @@ module Rack
           end
         end
         return [status, headers, @response] unless headers['Content-Type'] =~ /html/
-        body = ""; @response.each do |part| body << part
-        end
+        body = ""; @response.each do |part| body << part end
         @document = Nokogiri::HTML(body)
         @config.filters.each do |filter|
           if filter.kind_of? Rack::PageSpeed::Filter

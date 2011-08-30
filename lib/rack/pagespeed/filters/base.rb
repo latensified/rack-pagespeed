@@ -2,7 +2,7 @@ require 'uri'
 
 module Rack::PageSpeed::Filters
   class Base
-    attr_reader :document, :options, :type
+    attr_reader :document, :options
     @@subclasses = []
 
     def initialize options = {}

@@ -1,8 +1,12 @@
-# We will cache all images for a long time. This means that Cache-Control is set to public with max-age set
-# to a year by default. This can be configured.
-# We strip out Etag in favor of Last-Modified. We remove Vary to allow IE to cache images.
+# Image-caching filter for rack-pagespeed.
+# Cache-Control is set to public with max-age set to a month by default. This value can
+# be passed in as an option.
+# Strip out Etag in favor of Last-Modified.
+# Remove Vary to allow IE to cache images.
 #
-# If the use_etags parameter is set, the value will be set. If not, any ETag header will be stripped out.
+# Usage -- Add this to your pagespeed configuration:
+# cache_images :duration => 12
+
 
 class Rack::PageSpeed::Filters::CacheImages < Rack::PageSpeed::HeaderFilter
   name 'cache_images'
