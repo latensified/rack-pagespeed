@@ -2,7 +2,7 @@ require 'uri'
 
 module Rack::PageSpeed::Filters
   class Base
-    attr_reader :document, :options
+    attr_reader :document, :options, :type
     @@subclasses = []
 
     def initialize options = {}
@@ -61,4 +61,5 @@ module Rack::PageSpeed::Filters
   end
   # shortcut
   Rack::PageSpeed::Filter = Base
+  class Rack::PageSpeed::HeaderFilter < Base; end
 end
